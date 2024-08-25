@@ -1,4 +1,0 @@
-requests
-colorama
-random_user_agent
-telethon
