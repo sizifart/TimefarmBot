@@ -29,7 +29,7 @@ def parse_arguments():
 
 """ + "\033[0m" + "\033[1;96m" +
 r"""----------------------------------""" + "\033[0m")
-    ascii2=("\033[1;93mTIMEFARM AUTO BOT v1.1\033[0m")
+    ascii2=("\033[1;93mTIMEFARM AUTO BOT v1.2\033[0m")
     ascii3=("\033[1;92mPrepared and Developed by: F.Davoodi\033[0m")
     ascii5=("\033[1;96m----------------------------------\033[0m")
     ascii6=("\033[1;38;2;139;69;19;48;2;173;216;230m--------[TimeFarm Bot]--------\033[0m")
