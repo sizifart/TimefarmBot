@@ -6,10 +6,12 @@
 | Functional                                                                      | Supported |
 |----------------------------------------------------------------|:---------:|
 | Auto Claim                                                     |     ✅     |
+| Auto Start Farming                                             |     ✅     |
+| Auto Auto Upgrade Clock                                        |     ✅     |
+| Auto Claim Referral Balance                                    |     ✅     |
 | Auto Claim Daily Reward                                        |     ✅     |
 | Suppport Multi Account                                         |     ✅     |
 | Auto Complete Task (except telegram task)                      |     ✅     |
-| Using Random Device to [initConnection](https://core.telegram.org/method/initConnection)                     |     ✅     |
 
 # Warning !
 According to [Telegram TOS](https://core.telegram.org/api/obtaining_api_id#using-the-api-id) all accounts that sign up or log in using unofficial Telegram API clients are automatically put under observation to avoid violations of the Terms of Service.
@@ -21,20 +23,6 @@ So be careful, hopefully your account won't get banned.
 | Setting                      | Description                                                                                    |
 |------------------------------|------------------------------------------------------------------------------------------------|
 | query_id        | fill the `data.txt` file with your data, how to get data you can refer to [How to Get Data](#how-to-get-data)                      |
-
-## Config.json Explanation
-
-| key          | value             | description                                                                                                                   |
-| ------------ | ----------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| api_id       | string            | api_id for telegram client library, <br>see [Get My Own API\_ID \& API\_HASH](#get-my-own-api_id--api_hash) to get your own   |
-| api_hash     | string            | api_hash for telegram client library, <br>see [Get My Own API\_ID \& API\_HASH](#get-my-own-api_id--api_hash) to get your own |
-| auto_upgrade | bool (true/false) | auto upgrade account to next level                                                                                            |
-| auto_task    | bool (true/false) | auto complete task (except telegram task)                                                                                     |
-| interval     | integer (second)  | sleep time every account                                                                                                      |
-
-## Get My Own API_ID & API_HASH
-
-If you want to get your own api_id & api hash, you can goto <a href="https://my.telegram.org" target="_blank">https://my.telegram.org</a>
 
 
 ## Requirements
@@ -54,7 +42,7 @@ If you want to get your own api_id & api hash, you can goto <a href="https://my.
 ## Usage
 1. Run the bot:
    ```bash
-   python bot.py
+   python TimeFarm.py
    ```
 
 # How to Get Data
