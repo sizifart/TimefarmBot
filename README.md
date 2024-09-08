@@ -1,84 +1,80 @@
 # timefarmtodBot
 🖱️ clicker for [https://t.me/TimeFarmCryptoBot](https://t.me/TimeFarmCryptoBot?start=zSnCimutRec05xzk)
 
+## Recommendation before use
+# 🔥🔥 Use PYTHON 3.10 🔥🔥
 
 ## Functionality
-| Functional                                                                      | Supported |
+| Functional                                                     | Supported |
 |----------------------------------------------------------------|:---------:|
-| Auto Claim                                                     |     ✅     |
-| Auto Start Farming                                             |     ✅     |
-| Auto Auto Upgrade Clock                                        |     ✅     |
-| Auto Claim Referral Balance                                    |     ✅     |
-| Auto Claim Daily Reward                                        |     ✅     |
-| Suppport Multi Account                                         |     ✅     |
-| Auto Complete Task (except telegram task)                      |     ✅     |
+| Multithreading                                                 |     ✅     |
+| Binding a proxy to a session                                   |     ✅     |
+| Auto get all tasks except telegram tasks                       |     ✅     |
+| Auto upgrade level for boost farming                           |     ✅     |
+| Retry request per claim                                        |     ✅     |
+| Support tdata / pyrogram .session / telethon .session          |     ✅     |
 
-# Warning !
-According to [Telegram TOS](https://core.telegram.org/api/obtaining_api_id#using-the-api-id) all accounts that sign up or log in using unofficial Telegram API clients are automatically put under observation to avoid violations of the Terms of Service.
-
-So be careful, hopefully your account won't get banned.
-
-
-## Settings data file
-| Setting                      | Description                                                                                    |
-|------------------------------|------------------------------------------------------------------------------------------------|
-| query_id        | fill the `data.txt` file with your data, how to get data you can refer to [How to Get Data](#how-to-get-data)                      |
+## [Settings](https://github.com/sizifart/TimefarmBot/blob/main/.env-example)
+| Setting                   | Description                                                                   |
+|---------------------------|-------------------------------------------------------------------------------|
+| **API_ID / API_HASH**     | Platform data from which to launch a Telegram session (stock - Android)       |
+| **CLAIM_RETRY**           | Number of tries if **Claim** is unsuccessful _(e.g., 3)_                      |
+| **SLEEP_BETWEEN_CLAIM**   | Delay between **Claim** in minutes _(e.g., 180)_                              |
+| **AUTO_UPGRADE_FARM**     | Should I improve farmer level _(True / False)_                                |
+| **MAX_UPGRADE_LEVEL**     | Maximum level of farmer _(up to 4)_                                          |
+| **USE_PROXY_FROM_FILE**   | Whether to use proxy from the `bot/config/proxies.txt` file (True / False)    |
 
 
-## Requirements
-- Python 3.9 (you can install it [here](https://www.python.org/downloads/release/python-390/)) 
-- How to Get Data (you can get them [here](#how-to-get-data))
-  
+## 📕 Profiles
+Possible to create a profile with unique data for each session:
+```json
+{
+  "session1": {
+    "proxy": "socks5://yGow3a:uBro3wL@58.195.21.83:9715",
+    "headers": {"...": "..."},
+    "fingerprint": {"...": "..."}
+  },
+  "session2": {
+    "proxy": "socks5://yGow3a:uBro3wL@58.195.21.83:9715",
+    "headers": {"...": "..."},
+    "fingerprint": {"...": "..."}
+  },
+  "...": {}
+}
+```
+> ❕ **Note**:  `session1` и `session2` - are examples of session names.
+
+
+## Prerequisites
+Before you begin, make sure you have the following installed:
+- [Python](https://www.python.org/downloads/) **version 3.10**
+- Telegram API_ID and API_HASH (you can get them [here](https://my.telegram.org/auth))
+
+## Obtaining API Keys
+1. Go to my.telegram.org and log in using your phone number.
+2. Select "API development tools" and fill out the form to register a new application.
+3. Record the API_ID and API_HASH provided after registering your application in the .env file.
+
 ## Auto Install/Run
-- Click on Install.bat to automatically install the required dependencies 
-- Then click on START.bat to run the project
+- Click on RUN.bat to automatically install the required dependencies and run the project
 
 ## Menual Install/Run
 1. Install the required dependencies:
    ```bash
    pip install -r requirements.txt
    ```
+2. Please edit the name file .env-example to .env and add your API_ID and API_HASH:
    
 ## Usage
 1. Run the bot:
    ```bash
-   python TimeFarm.py
+   python main.py
    ```
-
-# How to Get Data
-   
-   1. Active web inspecting in telegram app
-   2. Goto bot and open the apps
-   3. Press `F12` on your keyboard to open devtool or right click on app and select `Inspect`
-   4. Goto `console` menu and copy [javascript code](#javascript-command-to-get-telegram-data-for-desktop) then paste on `console` menu
-   5. If you don't receive error message, it means you successfully copy telegram data then paste on `data.txt` (1 line for 1 telegram data)
-   
-   Example telegram data
-
-   ```
-   query_id=xxxxxxxxxx&user=xxxxxxfirst_namexxxxxlast_namexxxxxxxusernamexxxxxxxlanguage_codexxxxxxxallows_write_to_pmxxxxxxx&auth_date=xxxxxx&hash=xxxxxxxxxxxxxxxxxxxxx
-   ```
-
-   6. If you want to add more account. Just paste telegram second account data in line number 2.
-   
-   Maybe like this sample in below
-
-   ```
-   1.query_id=xxxxxxxxxx&user=xxxxxxfirst_namexxxxxlast_namexxxxxxxusernamexxxxxxxlanguage_codexxxxxxxallows_write_to_pmxxxxxxx&auth_date=xxxxxx&hash=xxxxxxxxxxxxxxxxxxxxx
-   2.query_id=xxxxxxxxxx&user=xxxxxxfirst_namexxxxxlast_namexxxxxxxusernamexxxxxxxlanguage_codexxxxxxxallows_write_to_pmxxxxxxx&auth_date=xxxxxx&hash=xxxxxxxxxxxxxxxxxxxxx
-   ```
-
-# Javascript Command to Get Telegram Data for Desktop
-
-```javascript
-copy(Telegram.WebApp.initData)
-```
  
 # Telegram Channel
 
 ✅ Channel for information and training on Telegram airdrop bots 🔷 Follow us on Telegram : [SIZIFAIRDROP](https://t.me/sizifairdrop)
-
+   
 # Discussion
 
 If you have an question or something you can ask in here : [F.Davoodi](https://t.me/sizifart)
-
