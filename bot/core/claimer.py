@@ -2,7 +2,7 @@ import asyncio
 from time import time
 from datetime import datetime
 from urllib.parse import unquote
-
+from random import randint
 import aiohttp
 from aiohttp_proxy import ProxyConnector
 from better_proxy import Proxy
@@ -65,7 +65,7 @@ class Claimer:
 
         except Exception as error:
             logger.error(f"{self.session_name} | Unknown error during Authorization: {error}")
-            await asyncio.sleep(delay=3)
+            await asyncio.sleep(delay = randint(3, 10))
 
     async def login(self, http_client: aiohttp.ClientSession, tg_web_data: dict[str]) -> dict[str]:
         try:
@@ -83,7 +83,7 @@ class Claimer:
             return json_data
         except Exception as error:
             logger.error(f"{self.session_name} | Unknown error while getting Access Token: {error}")
-            await asyncio.sleep(delay=3)
+            await asyncio.sleep(delay = randint(3, 10))
 
     async def get_mining_data(self, http_client: aiohttp.ClientSession) -> dict[str]:
         try:
@@ -95,7 +95,7 @@ class Claimer:
             return response_json
         except Exception as error:
             logger.error(f"{self.session_name} | Unknown error when getting Profile Data: {error}")
-            await asyncio.sleep(delay=3)
+            await asyncio.sleep(delay = randint(3, 10))
 
     async def get_tasks_list(self, http_client: aiohttp.ClientSession) -> dict[str]:
         try:
@@ -107,7 +107,7 @@ class Claimer:
             return response_json
         except Exception as error:
             logger.error(f"{self.session_name} | Unknown error when getting Tasks Data: {error}")
-            await asyncio.sleep(delay=3)
+            await asyncio.sleep(delay = randint(3, 10))
 
     async def get_task_data(self, http_client: aiohttp.ClientSession, task_id: str) -> dict[str]:
         try:
@@ -119,7 +119,7 @@ class Claimer:
             return response_json
         except Exception as error:
             logger.error(f"{self.session_name} | Unknown error when getting Task Data: {error}")
-            await asyncio.sleep(delay=3)
+            await asyncio.sleep(delay = randint(3, 10))
 
     async def upgrade_level(self, http_client: aiohttp.ClientSession) -> dict[str]:
         try:
@@ -132,7 +132,7 @@ class Claimer:
 
         except Exception as error:
             logger.error(f"{self.session_name} | Unknown error while Upgrade Level: {error}")
-            await asyncio.sleep(delay=3)
+            await asyncio.sleep(delay = randint(3, 10))
 
     async def task_claim(self, http_client: aiohttp.ClientSession, task_id: str) -> str:
         try:
@@ -143,7 +143,7 @@ class Claimer:
 
         except Exception as error:
             #logger.error(f"{self.session_name} | Unknown error while claim task: {error}")
-            await asyncio.sleep(delay=3)
+            await asyncio.sleep(delay = randint(3, 10))
 
     async def task_submiss(self, http_client: aiohttp.ClientSession, task_id: str) -> str:
         try:
@@ -154,7 +154,7 @@ class Claimer:
 
         except Exception as error:
             #logger.error(f"{self.session_name} | Unknown error while submissions task: {error}")
-            await asyncio.sleep(delay=3)
+            await asyncio.sleep(delay = randint(3, 10))
 
     async def start_mine(self, http_client: aiohttp.ClientSession) -> dict[str]:
         try:
@@ -169,7 +169,7 @@ class Claimer:
 
         except Exception as error:
             #logger.error(f"{self.session_name} | Unknown error when start miner: {error}")
-            await asyncio.sleep(delay=3)
+            await asyncio.sleep(delay = randint(3, 10))
 
             return {
                     'ok': True,
@@ -192,7 +192,7 @@ class Claimer:
 
         except Exception as error:
             #logger.error(f"{self.session_name} | Unknown error when Claiming: {error}")
-            await asyncio.sleep(delay=3)
+            await asyncio.sleep(delay = randint(3, 10))
 
             return {
                     'ok': True,
@@ -327,7 +327,7 @@ class Claimer:
                                     lvl_price = int(level_data['price'])
                                     if lvl_price <= balance:
                                         logger.info(f"{self.session_name} | Sleep 5s before upgrade level farming to {next_level} lvl")
-                                        await asyncio.sleep(delay=5)
+                                        await asyncio.sleep(delay = randint(3, 10))
 
                                         out_data = await self.upgrade_level(http_client=http_client)
                                         if out_data['balance']:
@@ -335,7 +335,7 @@ class Claimer:
                                             f"Balance: <c>{out_data['balance']}</c> | "
                                             f"Speed: <g>x{level_data['farmMultiplicator']}</g>")
                                             
-                                            await asyncio.sleep(delay=1)
+                                            await asyncio.sleep(delay = randint(3, 10))
                                     
 
                 except InvalidSession as error:
@@ -343,12 +343,12 @@ class Claimer:
 
                 except Exception as error:
                     logger.error(f"{self.session_name} | Unknown error: {error}")
-                    await asyncio.sleep(delay=3)
+                    await asyncio.sleep(delay = randint(3, 10))
 
                 else:
-                    logger.info(f"Sleep 1min")
-                    await asyncio.sleep(delay=60)
-
+                    sleep = randint(3200, 7200)
+                    logger.info(f"{self.session_name} | Sleep {sleep}s...")
+                    await asyncio.sleep(sleep)             
 
 async def run_claimer(tg_client: Client, proxy: str | None):
     try:
